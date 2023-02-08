@@ -32,11 +32,11 @@
       <div class="col d-flex align-items-start">
         <div
           class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
-          <i class="bi bi-gpu-card specs text-white"></i>
+          <i class="bi bi-pc-display specs text-white"></i>
         </div>
         <div>
-          <h3 class="fs-2">Carte graphique</h3>
-          <p>C'est un composant dédié à l'affichage visuel et à l'accélération des tâches graphiques.</p>
+          <h3 class="fs-2">Système d'exploitation</h3>
+          <p>Un système d'exploitation (OS) est un logiciel qui gère les ressources de l'ordinateur et fournit une interface pour les utilisateurs et les applications.</p>
           <p class="specs lead">
             {{ ordinateur.gpu }}
           </p>
