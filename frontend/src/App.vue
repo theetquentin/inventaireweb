@@ -7,6 +7,10 @@
 <script>
 import Inventaire from './components/Inventaire'
 
+var bg = document.getElementsByTagName('body')
+bg[0].style.backgroundColor = '#31373a'
+// console.log(test[0])
+
 export default {
   name: 'App',
   components: {
@@ -25,8 +29,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #ffffff;
   margin-top: 60px;
 }
-
 </style>
