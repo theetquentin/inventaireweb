@@ -4,13 +4,15 @@ import { getEnabledCategories } from 'trace_events'
 import dotenv from 'dotenv'
 dotenv.config()
 
+
 const pool = mysql.createPool({
-    host: process.env.MYSQL_HOST,
-    user: process.env.MYSQL_USER,
-    password: process.env.MYSQL_PASSWORD,
-    database: process.env.MYSQL_DATABASE
-    // port: process.env.MYSQL_PORT
+  host: process.env.MYSQL_HOST,
+  user: process.env.MYSQL_USER,
+  password: process.env.MYSQL_PASSWORD,
+  database: process.env.MYSQL_DATABASE
+  // port: process.env.MYSQL_PORT
 }).promise()
+
 
 // export async function getInventaire() {
 //     const result = await pool.query("SELECT * FROM composants")
@@ -19,9 +21,9 @@ const pool = mysql.createPool({
 // }
 
 export async function getInventaire() {
-    const result = await pool.query("SELECT * FROM city")
-    const rows = result[0]
-    return rows[0]
+  const result = await pool.query("SELECT * FROM city")
+  const rows = result[0]
+  return rows[0]
 }
 
 // export async function getInventaireParId(id){
