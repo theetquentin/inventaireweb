@@ -69,8 +69,8 @@ export default {
     }
   },
   methods: {
-    getOrdi (id) {
-      let url = 'http://localhost:3000/inventaire/' + id
+    getOrdi () {
+      let url = 'http://localhost:3000/inventaire'
       this.$http.get(url).then(response => {
         console.log(response.body)
         this.ordinateur = response.body

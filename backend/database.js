@@ -9,19 +9,26 @@ const pool = mysql.createPool({
     user: process.env.MYSQL_USER,
     password: process.env.MYSQL_PASSWORD,
     database: process.env.MYSQL_DATABASE
+    // port: process.env.MYSQL_PORT
 }).promise()
 
+// export async function getInventaire() {
+//     const result = await pool.query("SELECT * FROM composants")
+//     const rows = result[0]
+//     return rows[0]
+// }
+
 export async function getInventaire() {
-    const result = await pool.query("SELECT * FROM composants")
+    const result = await pool.query("SELECT * FROM city")
     const rows = result[0]
     return rows[0]
 }
 
-export async function getInventaireParId(id){
-    const result = await pool.query("SELECT * FROM composants WHERE composants.id= ?", [id])
-    const rows = result[0]
-    return rows[0]
-}
+// export async function getInventaireParId(id){
+//     const result = await pool.query("SELECT * FROM composants WHERE composants.id= ?", [id])
+//     const rows = result[0]
+//     return rows[0]
+// }
 
 
 // export async function getMot(id){

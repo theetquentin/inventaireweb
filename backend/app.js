@@ -1,5 +1,5 @@
 import express from 'express'
-import { getInventaire, getInventaireParId } from '../backend/database.js'
+import { getInventaire } from '../backend/database.js'
 import cors from 'cors'
 
 import dotenv from 'dotenv'
@@ -22,10 +22,10 @@ app.get('/inventaire', async (req, res) => {
 // })
 
 
-app.get('/inventaire/:id', async (req, res) => {
-  const id = req.params.id
-  const mots = await getInventaireParId(id)
-  res.send(mots)
-})
+// app.get('/inventaire/:id', async (req, res) => {
+//   const id = req.params.id
+//   const mots = await getInventaireParId(id)
+//   res.send(mots)
+// })
 
 app.listen(process.env.PORT, () => console.log('app running on port '+ process.env.PORT))
