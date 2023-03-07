@@ -20,8 +20,30 @@ const pool = mysql.createPool({
 //     return rows[0]
 // }
 
+export async function ajoutOrdi(idPc, cpu, os, ram, storage_c, used_c, available_c, storage_d, used_d, available_d) {
+  try {
+    const result = await pool.query(
+      "INSERT INTO Ordinateurs (idPc, cpu, os, ram, storage_c, used_c, available_c, storage_d, used_d, available_d) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+      [idPc, cpu, os, ram, storage_c, used_c, available_c, storage_d, used_d, available_d]
+    );
+    console.log(`Ajout d'un nouvel ordinateur avec l'ID ${idPc}`);
+  } catch (error) {
+    // Vérifie s'il y a une erreur de duplication d'id ou non 
+    if (error.code === 'ER_DUP_ENTRY') {
+      console.error(`Erreur de duplication : ${error.message}`);
+      throw new Error(`Doublon pour l'ID : ${idPc}`);
+    } else {
+      // Si ce n'est pas une erreur de duplication, on relance l'autre erreur.
+      console.error(`Erreur lors de l'ajout d'un ordinateur: ${error.message}`);
+      throw error;
+    }
+  }
+}
+
+
+
 export async function getInventaire() {
-  const result = await pool.query("SELECT * FROM city")
+  const result = await pool.query("SELECT * FROM ordinateurs")
   const rows = result[0]
   return rows[0]
 }

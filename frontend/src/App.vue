@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Inventaire/>
+    <Inventaire />
   </div>
 </template>
 
@@ -17,15 +17,29 @@ export default {
     Inventaire
   },
   data () {
-    return {
+    return {}
+  },
+  methods: {
+    async Database () {
+      let url = 'http://localhost:3000/bdd'
+      this.$http.get(url).then(response => {
+        console.log(response.body)
+        this.ordinateur = response.body
+      }, reponse => {
+        // error callback
+      }
+      )
     }
+  },
+  created () {
+    this.Database()
   }
 }
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
